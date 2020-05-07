@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:XDW.WorkflowDocument xmlns:mif="urn:hl7-org:v3/mif"
+    xmlns:sch="http://www.ascc.net/xml/schematron"
+    xmlns:ht="http://docs.oasis-open.org/ns/bpel4people/ws-humantask/types/200803"
+    xmlns:cda="urn:hl7-org:v3" xmlns:ns0="urn:ihe:iti:xdw:2011"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:xdw:2011 ftp://ftp.ihe.net/TF_Implementation_Material/ITI/schema/IHE/XDW/XDW-2014-12-23.xsd">
+    <ns0:id root="1.23.4" extension="workflow1"/>
+    <ns0:effectiveTime value="20060504201351"/>
+    <ns0:confidentialityCode/>
+    <ns0:patient>
+        <ns0:id extension="ZNRMRA86L11B157N" root="2.16.840.1.113883.2.11.1.4"/>
+    </ns0:patient>
+    <ns0:author>
+        <ns0:assignedAuthor>
+            <cda:id extension="12345" root="2.16.840.1.113883.2.11.1.4"/>
+            <cda:assignedPerson>
+                <cda:name>author0</cda:name>
+            </cda:assignedPerson>
+        </ns0:assignedAuthor>
+    </ns0:author>
+    <ns0:workflowInstanceId>urn:oid:1.3.6.1.4.1.19376.1.5.3.1.5.1</ns0:workflowInstanceId>
+    <ns0:workflowDocumentSequenceNumber>1</ns0:workflowDocumentSequenceNumber>
+    <ns0:workflowStatus>OPEN</ns0:workflowStatus>
+    <ns0:workflowStatusHistory>
+        <ns0:documentEvent>
+            <ns0:eventTime>2006-05-04T18:13:51.0</ns0:eventTime>
+            <ns0:eventType>create</ns0:eventType>
+            <ns0:taskEventIdentifier>urn:11</ns0:taskEventIdentifier>
+            <ns0:author>author0</ns0:author>
+            <ns0:previousStatus></ns0:previousStatus>
+            <ns0:actualStatus>OPEN</ns0:actualStatus>
+        </ns0:documentEvent>
+        <ns0:documentEvent>
+            <ns0:eventTime>2006-05-04T20:23:51.0</ns0:eventTime>
+            <ns0:eventType>complete</ns0:eventType>
+            <ns0:taskEventIdentifier>urn:12</ns0:taskEventIdentifier>
+            <ns0:author>author1</ns0:author>
+            <ns0:previousStatus>OPEN</ns0:previousStatus>
+            <ns0:actualStatus>CLOSED</ns0:actualStatus>
+        </ns0:documentEvent>
+    </ns0:workflowStatusHistory>
+    <ns0:workflowDefinitionReference>urn:oid:2.16.840.1</ns0:workflowDefinitionReference>
+    <ns0:TaskList>
+        <ns0:XDWTask>
+            <ns0:taskData>
+                <ht:taskDetails>
+                    <ht:id>1</ht:id>
+                    <ht:taskType>Request Referral</ht:taskType>
+                    <ht:name>RequestReferral</ht:name>
+                    <ht:status>COMPLETED</ht:status>
+                    <ht:actualOwner>author1</ht:actualOwner>
+                    <ht:createdTime>2006-05-04T18:13:51.0</ht:createdTime>
+                    <ht:createdBy>author0</ht:createdBy>
+                    <ht:lastModifiedTime>2006-05-04T20:23:51.0</ht:lastModifiedTime>
+                    <ht:renderingMethodExists>false</ht:renderingMethodExists>
+                </ht:taskDetails>
+                <ht:description>A Referral process is requested for a patient by the Referral Requester</ht:description>
+                <ht:input>
+                    <ht:part name="ClinicalInput">
+                        <ht:attachmentInfo>
+                            <ht:identifier>2.16.840.1.113883.2.9.50.3.1^12345</ht:identifier>
+                            <ht:name>ClinicalInput</ht:name>
+                            <ht:accessType>urn:ihe:iti:xdw:2011:XDSregistered</ht:accessType>
+                            <ht:contentType>text/xml</ht:contentType>
+                            <ht:contentCategory>http://www.iana.org/assignments/media-types</ht:contentCategory>
+                            <ht:attachedTime>2006-05-04T18:13:51.0</ht:attachedTime>
+                            <ht:attachedBy>2006-05-04T18:13:51.0</ht:attachedBy>
+                        </ht:attachmentInfo>
+                    </ht:part>
+                </ht:input>
+                <ht:output>
+                    <ht:part name="eReferral">
+                        <ht:attachmentInfo>
+                            <ht:identifier>2.16.840.1.113883.2.9.4.3.4^050A00001220948</ht:identifier>
+                            <ht:name>eReferral</ht:name>
+                            <ht:accessType>urn:ihe:iti:xdw:2011:XDSregistered</ht:accessType>
+                            <ht:contentType>text/xml</ht:contentType>
+                            <ht:contentCategory>http://www.iana.org/assignments/media-types</ht:contentCategory>
+                            <ht:attachedTime>2006-05-04T18:13:51.0</ht:attachedTime>
+                            <ht:attachedBy>author0</ht:attachedBy>
+                        </ht:attachmentInfo>
+                    </ht:part>
+                    <ht:part name="ExampleWD">
+                        <ht:attachmentInfo>
+                            <ht:identifier>2.16.840.1.113883.2.9.4.3.4^provaDoc1</ht:identifier>
+                            <ht:name>ExampleWD</ht:name>
+                            <ht:accessType>urn:ihe:iti:xdw:2013:workflowInstanceId</ht:accessType>
+                            <ht:contentType></ht:contentType>
+                            <ht:contentCategory>http://www.iana.org/assignments/media-types</ht:contentCategory>
+                            <ht:attachedTime>2006-05-04T20:23:51.0</ht:attachedTime>
+                            <ht:attachedBy>author1</ht:attachedBy>
+                        </ht:attachmentInfo>
+                    </ht:part>
+                </ht:output>
+            </ns0:taskData>
+            <ns0:taskEventHistory>
+                <ns0:taskEvent>
+                    <ns0:id>11</ns0:id>
+                    <ns0:eventTime>2006-05-04T18:13:51.0</ns0:eventTime>
+                    <ns0:identifier>urn:11</ns0:identifier>
+                    <ns0:eventType>create</ns0:eventType>
+                    <ns0:status>CREATED</ns0:status>
+                    <ns0:eventData/>
+                </ns0:taskEvent>
+                <ns0:taskEvent>
+                    <ns0:id>12</ns0:id>
+                    <ns0:eventTime>2006-05-04T20:23:51.0</ns0:eventTime>
+                    <ns0:identifier>urn:12</ns0:identifier>
+                    <ns0:eventType>complete</ns0:eventType>
+                    <ns0:status>COMPLETED</ns0:status>
+                </ns0:taskEvent>
+            </ns0:taskEventHistory>
+        </ns0:XDWTask>
+    </ns0:TaskList>
+</ns0:XDW.WorkflowDocument>
+

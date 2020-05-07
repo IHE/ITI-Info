@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:ihe="urn:ihe:iti:xds-b:2007" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	name="XCDRReceiverActor" targetNamespace="urn:ihe:iti:xds-b:2007">
+	<documentation>Stand-alone example for IHE XCDR Document Recipient Actor.
+		Depending on the actual actor grouping the port type and binding defined here would be
+		merged with an existing
+		XCA initiating or responding gateway service definition.
+	</documentation>
+	<types>
+		<xsd:schema elementFormDefault="qualified" targetNamespace="urn:ihe:iti:xds-b:2007"
+			xmlns:ihe="urn:ihe:iti:xds-b:2007">
+			<!-- Include the message schema -->
+			<xsd:include schemaLocation="../schema/IHE/XDS.b_DocumentRepository.xsd" />
+		</xsd:schema>
+		<xsd:schema elementFormDefault="qualified"
+			targetNamespace="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0"
+			xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0">
+			<!-- Include the message schema -->
+			<xsd:include schemaLocation="../schema/ebRS/rs.xsd" />
+		</xsd:schema>
+		<!-- While no elements are directly used from these schema in the WSDL, 
+			they need to be present here in order for code generating toolkits to work 
+			properly -->
+		<xsd:schema elementFormDefault="qualified"
+			targetNamespace="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0"
+			xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0">
+			<!-- Include the message schema -->
+			<xsd:include schemaLocation="../schema/ebRS/lcm.xsd" />
+		</xsd:schema>
+		<xsd:schema elementFormDefault="qualified"
+			targetNamespace="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0"
+			xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+			<!-- Include the message schema -->
+			<xsd:include schemaLocation="../schema/ebRS/rim.xsd" />
+		</xsd:schema>
+		<!-- Importing all schemas within one seems to confuse some parsers and 
+			code-generation tools (and may be invalid) <xsd:schema elementFormDefault="qualified"> 
+			<xsd:import namespace="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0" schemaLocation="../schema/ebRS/rs.xsd"/> 
+			<xsd:import namespace="urn:ihe:iti:xds-b:2007" schemaLocation="../schema/IHE/XDS.b_DocumentRepository.xsd"/> 
+			</xsd:schema> -->
+	</types>
+</message>
+	<message name="CrossGatewayDocumentProvide_Message">
+		<documentation>Cross-Gateway Document Provide</documentation>
+		<part name="body" element="ihe:ProvideAndRegisterDocumentSetRequest" />
+	</message>
+	<message name="CrossGatewayDocumentProvide_Message">
+		<documentation>Cross-Gateway Document Provide Response</documentation>
+		<part name="body" element="rs:RegistryResponse" />
+	</message>
+	<portType name="CrossGatewayDocumentProvide_PortType">
+		<operation name="CrossGatewayDocumentRecipient_CrossGatewayDocumentProvide">
+			<input message="ihe:ProvideAndRegisterDocumentSet-b_Message"
+				wsaw:Action="urn:ihe:iti:2015:CrossGatewayDocumentProvide" />
+			<output message="ihe:ProvideAndRegisterDocumentSet-bResponse_Message"
+				wsaw:Action="urn:ihe:iti:2015:CrossGatewayDocumentProvideResponse" />
+		</operation>
+	</portType>
+	<binding name="CrossGatewayDocumentProvide_Binding" type="ihe:CrossGatewayDocumentProvide_PortType">
+		<wsaw:UsingAddressing wsdl:required="true" />
+
+		<soap12:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="CrossGatewayDocumentRecipient_CrossGatewayDocumentProvide">
+			<soap12:operation soapActionRequired="false" />
+			<input>
+				<soap12:body use="literal" />
+			</input>
+			<output>
+				<soap12:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="CrossGatewayDocumentProvide_Service">
+		<port name="CrossGatewayDocumentRecipient_Port_Soap12" binding="ihe:CrossGatewayDocumentProvide_Binding">
+			<soap12:address location="http://servicelocation/CrossGatewayDocumentRecipient_Service" />
+		</port>
+	</service>
+</definitions>

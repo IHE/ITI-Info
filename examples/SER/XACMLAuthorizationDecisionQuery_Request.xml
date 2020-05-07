@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope
+    soap-envelope.xsd"
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xacmlsaml="urn:oasis:xacml:2.0:saml:assertion:schema:os">
+    <soap:Header
+        xsi:schemaLocation="http://www.w3.org/2005/08/addressing ws-addr.xsd"
+        xmlns:wsa="http://www.w3.org/2005/08/addressing">
+        <wsa:Action>urn:iti:2014:ser:XACMLAuthorizationDecisionQueryRequest</wsa:Action>
+        <wsa:MessageID>urn:uuid:9376254e-da05-41f5-9af3-
+            ac56d63d8ebd</wsa:MessageID>
+        <wsa:To>https://AuthorizationDecisionsManager</wsa:To>
+    </soap:Header>
+    <soap:Body
+        xsi:schemaLocation="urn:oasis:xacml:2.0:saml:assertion:schema:os
+        access_control-xacml-2.0-saml-assertion-schema-os.xsd">
+        <xacml-samlp:XACMLAuthzDecisionQuery xmlns:xacml-samlp="urn:oasis:xacml:2.0:saml:protocol:schema:os"
+            xacml-samlp:InputContextOnly="false"
+            xacml-samlp:ReturnContext="false">
+            <Request
+                xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os">
+                <!-- Requester Entity identifier -->
+                <Subject>
+                    <Attribute
+                        AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id"
+                        DataType="http://www.w3.org/2001/XMLSchema#string">
+                        <AttributeValue>admin</AttributeValue>
+                    </Attribute>
+                </Subject>
+                <!-- DOC 1 -->
+                <Resource>
+                    <Attribute
+                        AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                        DataType="http://www.w3.org/2001/XMLSchema#string">
+                        <AttributeValue>documentID1</AttributeValue>
+                    </Attribute>
+                    <Attribute
+                        AttributeId="urn:ihe:iti:xds-b:2007:documententry:repository-unique-id"
+                        DataType="http://www.w3.org/2001/XMLSchema#anyURI">>
+                        
+                        <AttributeValue>urn:oid:1.2.3.4.5</AttributeValue>
+                    </Attribute>
+                </Resource>
+                <!-- DOC 2 -->
+                <Resource>
+                    <Attribute
+                        AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                        DataType="http://www.w3.org/2001/XMLSchema#string">
+                        <AttributeValue>documentID2</AttributeValue>
+                    </Attribute>
+                    <Attribute
+                        AttributeId="urn:ihe:iti:xds-b:2007:documententry:repository-unique-id"
+                        DataType="http://www.w3.org/2001/XMLSchema#anyURI">>
+                        <AttributeValue>
+                            urn:oid:1.2.3.4.5</AttributeValue>
+                    </Attribute>
+                </Resource>
+                <!-- DOC 3 -->
+                <Resource>
+                    <Attribute
+                        AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+                        DataType="http://www.w3.org/2001/XMLSchema#string">
+                        <AttributeValue>documentID3</AttributeValue>
+                    </Attribute>
+                    <Attribute
+                        AttributeId="urn:ihe:iti:xds-b:2007:documententry:repository-unique-id"
+                        DataType="http://www.w3.org/2001/XMLSchema#anyURI">>
+                        <AttributeValue>
+                            urn:oid:1.2.3.4.5</AttributeValue>
+                    </Attribute>
+                </Resource>
+                <Action>
+                    <Attribute
+                        AttributeId="urn:oasis:names:tc:xacml:1.0:action-id"
+                        DataType="http://www.w3.org/2001/XMLSchema#anyURI">
+                        <AttributeValue>urn:ihe:iti:2007:RetrieveDocumentSetResponse
+                        </AttributeValue>
+                    </Attribute>
+                </Action>
+                <Environment/>
+            </Request>
+        </xacml-samlp:XACMLAuthzDecisionQuery>
+    </soap:Body>
+</soap:Envelope>

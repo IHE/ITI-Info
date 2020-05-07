@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions 
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:wsoap11="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+	xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl/" 
+	xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:3.0" 
+	xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0" 
+	xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" 
+	xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0" 
+	xmlns:xds="urn:ihe:iti:xds-b:2007"
+	targetNamespace="urn:ihe:iti:xds-b:2007" 
+	name="DocumentRegistry" 
+>
+	<documentation>IHE RMD ITI-62: Remove Metadata Transaction</documentation>
+	<types>
+		<xsd:schema elementFormDefault="qualified" xmlns:xds="urn:ihe:iti:xds-b:2007" targetNamespace="urn:ihe:iti:xds-b:2007">
+			<xsd:include schemaLocation="../schema/IHE/XDSb.xsd"/> 
+		</xsd:schema>
+		<xsd:schema elementFormDefault="qualified" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0" targetNamespace="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0">
+			<xsd:include schemaLocation="../schema/ebRS30/rs.xsd"/>
+		</xsd:schema>
+		<xsd:schema elementFormDefault="qualified" xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0" targetNamespace="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0">
+			<xsd:include schemaLocation="../schema/ebRS30/lcm.xsd"/>
+		</xsd:schema>
+		<xsd:schema elementFormDefault="qualified" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" targetNamespace="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+			<xsd:include schemaLocation="../schema/ebRS30/rim.xsd"/>
+		</xsd:schema>
+	</types>
+	<message name="DeleteDocumentSet_Message">
+		<part element="lcm:RemoveObjectsRequest" name="body"/>
+	</message>
+	<message name="DeleteDocumentSetResponse_Message">
+		<part element="rs:RegistryResponse" name="body"/>
+	</message>
+	<portType name="DocumentRegistry_PortType">
+		<operation name="DocumentRegistry_DeleteDocumentSet">
+			<input message="xds:DeleteDocumentSet_Message" wsaw:Action="urn:ihe:iti:2010:DeleteDocumentSet"/>
+			<output message="xds:DeleteDocumentSetResponse_Message" wsaw:Action="urn:ihe:iti:2010:DeleteDocumentSetResponse"/>
+		</operation>
+	</portType>
+	<binding name="DocumentRegistry_Binding_Soap11" type="xds:DocumentRegistry_PortType">
+		<wsoap11:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="DocumentRegistry_DeleteDocumentSet">
+			<wsoap11:operation soapAction="urn:ihe:iti:2010:DeleteDocumentSet"/>
+			<input>
+				<wsoap11:body use="literal"/>
+			</input>
+			<output>
+				<wsoap11:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="DocumentRegistry_Binding_Soap12" type="xds:DocumentRegistry_PortType">
+		<wsoap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="DocumentRegistry_DeleteDocumentSet">
+			<wsoap12:operation soapAction="urn:ihe:iti:2010:DeleteDocumentSet" soapActionRequired="false"/>
+			<input>
+				<wsoap12:body use="literal"/>
+			</input>
+			<output>
+				<wsoap12:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="DocumentRegistry_Service">
+		<port name="DocumentRegistry_Port_Soap11" binding="xds:DocumentRegistry_Binding_Soap11" >
+			<wsoap11:address location="http://servicelocation/DocumentRegistry_Service"/>
+		</port>	
+		<port name="DocumentRegistry_Port_Soap12" binding="xds:DocumentRegistry_Binding_Soap12">
+			<wsoap12:address location="http://servicelocation/DocumentRegistry_Service"/>
+		</port>
+	</service>
+</definitions>

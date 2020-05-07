@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap12:Envelope 
+	xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" 
+	xmlns:wsa="http://www.w3.org/2005/08/addressing">
+	<soap12:Header>
+		<wsa:Action soap12:mustUnderstand="1">urn:ihe:iti:2010:DeleteDocumentSet</wsa:Action>
+		<wsa:MessageID>urn:uuid:D6C21225-8E7B-454E-9750-821622C099DC</wsa:MessageID>
+		<wsa:To soap12:mustUnderstand="1">http://localhost:2647/XdsService/RemoveMetadataReceiver.svc</wsa:To>
+		<wsa:ReplyTo>
+			<wsa:Address>http://www.w3.org/2005/08/addressing/anonymous</wsa:Address>
+		</wsa:ReplyTo>
+	</soap12:Header>
+	<soap12:Body>
+		<lcm:RemoveObjectsRequest xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0">
+			<rim:ObjectRefList xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+				<rim:ObjectRef id="urn:uuid:b2632452-1de7-480d-94b1-c2074d79c871"/>
+				<rim:ObjectRef id="urn:uuid:b2632df2-1de7-480d-1045-c2074d79aabd"/>
+				<rim:ObjectRef id="urn:uuid:b2632132-1de7-480d-88bd-c2074d79009b"/>
+				<rim:ObjectRef id="urn:uuid:b2632cd2-1de7-480d-108c-c2074d797777"/>
+			</rim:ObjectRefList>
+		</lcm:RemoveObjectsRequest>
+	</soap12:Body>
+</soap12:Envelope>
+
+

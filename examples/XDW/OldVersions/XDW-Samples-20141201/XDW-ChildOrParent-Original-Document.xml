@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:XDW.WorkflowDocument xmlns:mif="urn:hl7-org:v3/mif"
+    xmlns:sch="http://www.ascc.net/xml/schematron"
+    xmlns:ht="http://docs.oasis-open.org/ns/bpel4people/ws-humantask/types/200803"
+    xmlns:cda="urn:hl7-org:v3" xmlns:ns0="urn:ihe:iti:2011:xdw"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:ihe:iti:2011:xdw ftp://ftp.ihe.net/TF_Implementation_Material/ITI/schema/IHE/XDW/XDW-2014-11-24.xsd">
+    <ns0:id root="1.23.19910816" extension="Original-Workflow"/>
+    <ns0:effectiveTime value="20150104100000"/>
+    <ns0:confidentialityCode/>
+    <ns0:patient>
+        <ns0:id extension="IHERED-1014" root="1.3.6.1.4.1.21367.13.20.1000"/>
+    </ns0:patient>
+    <ns0:author>
+        <ns0:assignedAuthor>
+            <cda:id extension="12345" root="2.16.840.1.113883.2.11.1.4"/>
+            <cda:assignedPerson>
+                <cda:name>author0</cda:name>
+            </cda:assignedPerson>
+        </ns0:assignedAuthor>
+    </ns0:author>
+    <ns0:workflowInstanceId>urn:oid:1.3.6.1.4.1.19376.1.5.3.1.5.19910816</ns0:workflowInstanceId>
+    <ns0:workflowDocumentSequenceNumber>1</ns0:workflowDocumentSequenceNumber>
+    <ns0:workflowStatus>OPEN</ns0:workflowStatus>
+    <ns0:workflowStatusHistory>
+        <ns0:documentEvent>
+            <ns0:eventTime>2015-01-04T10:00:00.0</ns0:eventTime>
+            <ns0:eventType>create</ns0:eventType>
+            <ns0:taskEventIdentifier>urn:19910816</ns0:taskEventIdentifier>
+            <ns0:author>author0</ns0:author>
+            <ns0:previousStatus/>
+            <ns0:actualStatus>OPEN</ns0:actualStatus>
+        </ns0:documentEvent>
+    </ns0:workflowStatusHistory>
+    <ns0:workflowDefinitionReference>urn:oid:2.16.840.19910816</ns0:workflowDefinitionReference>
+    <ns0:TaskList>
+        <ns0:XDWTask>
+            <ns0:taskData>
+                <ht:taskDetails>
+                    <ht:id>1</ht:id>
+                    <ht:taskType>Request Child Task</ht:taskType>
+                    <ht:name>RequestChildTask</ht:name>
+                    <ht:status>COMPLETED</ht:status>
+                    <ht:actualOwner>author0</ht:actualOwner>
+                    <ht:createdTime>2015-01-04T10:00:00.0</ht:createdTime>
+                    <ht:createdBy>author0</ht:createdBy>
+                    <ht:lastModifiedTime>2015-01-04T10:00:00.0</ht:lastModifiedTime>
+                    <ht:renderingMethodExists>false</ht:renderingMethodExists>
+                </ht:taskDetails>
+                <ht:description>A generic Child Task is requested to be completed for patient IHERED-1014</ht:description>
+                <ht:input>
+                    <ht:part name="ClinicalInput">
+                        <ht:attachmentInfo>
+                            <ht:identifier>2.16.840.1.113883.2.9.50.3.1.19910816</ht:identifier>
+                            <ht:name>ClinicalInput</ht:name>
+                            <ht:accessType>urn:ihe:iti:2011:xdw:XDSregistered</ht:accessType>
+                            <ht:contentType>text/xml</ht:contentType>
+                            <ht:contentCategory>http://www.iana.org/assignments/media-types</ht:contentCategory>
+                            <ht:attachedTime>2015-01-04T10:00:00.0</ht:attachedTime>
+                            <ht:attachedBy>2015-01-04T10:00:00.0</ht:attachedBy>
+                        </ht:attachmentInfo>
+                    </ht:part>            
+                </ht:input>
+                <ht:output/>
+            </ns0:taskData>
+            <ns0:taskEventHistory>
+                <ns0:taskEvent>
+                    <ns0:id>11</ns0:id>
+                    <ns0:eventTime>2015-01-04T10:00:00.0</ns0:eventTime>
+                    <ns0:identifier>urn:19910816</ns0:identifier>
+                    <ns0:eventType>create</ns0:eventType>
+                    <ns0:status>COMPLETED</ns0:status>
+                    <ns0:eventData/>
+                </ns0:taskEvent>
+            </ns0:taskEventHistory>
+        </ns0:XDWTask>
+    </ns0:TaskList>
+</ns0:XDW.WorkflowDocument>

@@ -1,0 +1,64 @@
+<careServicesRequest>
+  <expression content-type="text/xml" encapsulated="false">
+    (: 
+      This is an example query which searches for a Genetic Counselor (according to the BCBSIL coding scheme) 
+      with a last name starting with "L" and which is part of a Hospital (according to the NCDHHS coding scheme)
+      organizational network based in the 27599 zip code.
+
+      The query will be executed against the root element of the CSD document. 
+      It is designed as a template where specific search parameters can be put into the
+      $orgSearch and $provSearch
+    :)     
+
+    import module namespace csd = "urn:ihe:iti:csd:2013" at "csd_base_library.xq";
+    declare variable $careServicesRequest as item() external;
+    let $orgSearch := document{ 
+      <params>
+        <id/>
+        <primaryName/>
+        <name>University</name>
+        <codedType code="HL" codingSchema="ncdhhs.gov"/>
+        <address>
+          <addressLine component="zipcode">27599</addressLine>
+        </address>
+      </params>
+     }
+    let $provSearch := document{ 
+      <params>
+        <id/>
+        <otherId/>
+	      <forename/>
+        <surname>L</surname>
+        <codedType code="DA" codingSchema="BCBSIL"/>
+        <address/>
+      </params>
+     }
+    <CSD xmlns:csd="urn:ihe:iti:csd:2013">
+      {
+      let $orgs0 := csd:filter_by_primary_id(/CSD/organizationDirectory/*,$orgSearch/params/id)      
+      let $orgs1 := csd:filter_by_primary_name($orgs0,$orgSearch/params/primaryName)
+      let $orgs2 := csd:filter_by_name($orgs1,$orgSearch/params/name)
+      let $orgs3 := csd:filter_by_coded_type($orgs2,$orgSearch/params/codedType) 
+      let $orgs4 := csd:filter_by_address($orgs3, $orgSearch/address/addressLine)     
+      let $orgs5:= csd:join_parent_organizations($orgs4,/CSD/organizationDirectory)
+                   union
+                   csd:join_child_organizations($orgs4,/CSD/organizationDirectory)
+
+      let $provs0 := csd:filter_by_primary_id(/CSD/providerDirectory/*,$provSearch/params/id)
+      let $provs1 := csd:filter_by_other_id($provs0,$provSearch/params/otherID)
+      let $provs2 := csd:filter_by_forename($provs1,$provSearch/params/forname)
+      let $provs3 := csd:filter_by_surname_starts_with($provs2,$provSearch/params/surname)
+      let $provs4 := csd:filter_by_coded_type($provs3,$provSearch/params/codedType) 
+      let $provs5 := csd:filter_by_address($provs4, $provSearch/params/address/addressLine) 
+      let $provs6:= csd:filter_by_organizations($provs5,$orgs5)          
+
+      return   (
+      <organizationDirectory>{$orgs5}</organizationDirectory> ,
+      <serviceDirectory/> ,
+      <facilityDirectory/> ,
+      <providerDirectory>{$provs6}</providerDirectory>  
+      )
+      }     
+    </CSD>
+  </expression>
+</careServicesRequest>    

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  IHE Retrieve Form for Data Capture (RFD) WSDL defintions for Submit Form (to Form Receiver or Form Processor).
+  -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ihe="urn:ihe:iti:rfd:2007" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2005/08/addressing" name="SubmitForm" targetNamespace="urn:ihe:iti:rfd:2007">
+
+  <types>
+	  <xsd:schema elementFormDefault="qualified" targetNamespace="urn:ihe:iti:rfd:2007">
+		<xsd:include schemaLocation="..\schema\IHE\RFD.xsd" />
+    </xsd:schema>
+  </types>
+
+  <!-- Message definitions -->
+  <message name="SubmitForm_Message">
+    <documentation>Submit Form Request</documentation>
+    <part name="body" element="ihe:SubmitFormRequest" />
+  </message>
+
+  <message name="SubmitFormResponse_Message">
+    <documentation>Submit Form Response</documentation>
+    <part name="body" element="ihe:SubmitFormResponse" />
+  </message>
+    
+  <!-- Operation/transaction declarations -->
+  <portType name="SubmitForm_PortType">
+    <operation name="SubmitForm">
+      <documentation>Corresponds to Transaction ITI-35 of the IHE Technical Framework</documentation>
+      <input message="ihe:SubmitForm_Message" wsaw:Action="urn:ihe:iti:2007:SubmitForm"/>
+      <output message="ihe:SubmitFormResponse_Message" wsaw:Action="urn:ihe:iti:2007:SubmitFormResponse"/>
+    </operation>
+   </portType>
+
+  <!-- SOAP 1.2 Binding -->
+  <binding name="SubmitForm_Binding_Soap12" type="ihe:SubmitForm_PortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="SubmitForm">
+      <soap12:operation soapAction="urn:ihe:iti:2007:SubmitForm" />
+      <input><soap12:body use="literal" /></input>
+      <output><soap12:body use="literal" /></output>
+    </operation>
+  </binding>
+
+  <!-- Service definition -->
+  <service name="SubmitForm_Service">
+    <port binding="ihe:SubmitForm_Binding_Soap12" name="SubmitForm_Port_Soap12">
+      <soap12:address location="http://localhost/RFDFormReceiver" />
+    </port>
+  </service>
+</definitions>

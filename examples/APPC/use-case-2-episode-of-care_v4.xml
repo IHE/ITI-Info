@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PolicySet PolicySetId="urn:uuid:29e64cce-19f6-43c4-9cc9-0227cb361ba1"
+				PolicyCombiningAlgId="urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:deny-overrides"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:hl7="urn:hl7-org:v3"
+				xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os"
+	xsi:schemaLocation="urn:oasis:names:tc:xacml:2.0:policy:schema:os ihe-appc-xacml-combined-schema-1.0.xsd">
+	<Description>The patient agrees to grant access to the identified healthcare providers. 
+	The access is limited to a folder with the given code and all documents in that folder. 
+	The referenced policy defines the detailed access rights (e.g. action IDs).</Description>
+    <Target>
+		<Subjects>
+			<Subject>
+				<SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">
+						j.smith
+						<!-- Example username for the psychiatrist -->
+					</AttributeValue>
+					<SubjectAttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string" 
+							AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id" />
+					<!-- subject-id is the appropriate ID for the userID in XACML, although it is used for the user's legal name in XUA 
+						(SAML has a different mechanism for the user identifier, 
+						therefore this can be explained as a difference in the base standard). 
+						SeR also uses it for the user identifier, as we do here -->
+				</SubjectMatch>
+			</Subject>
+			<!-- OR -->
+			<Subject>
+				<SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">
+						1234567890
+						<!-- Example NPI for the PCP - instead of a username to illustrate a different approach -->
+					</AttributeValue>
+					<SubjectAttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string" 
+							AttributeId="urn:oasis:names:tc:xspa:1.0:subject:npi" />
+					<!-- Attribute ID from XUA and SeR -->
+				</SubjectMatch>
+			</Subject>
+			<!-- OR -->
+			<Subject>
+				<SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">
+						d.sawyer
+						<!-- Example username for the occupational therapist -->
+					</AttributeValue>
+					<SubjectAttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string" 
+							AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id" />
+				</SubjectMatch>
+			</Subject>
+		</Subjects>
+		<Resources>
+			<Resource>
+				<!-- This resource check is for allowing access to the folder itself -->
+				<ResourceMatch MatchId="urn:hl7-org:v3:function:II-equal">
+					<AttributeValue DataType="urn:hl7-org:v3#II">
+						<hl7:InstanceIdentifier root="2.999.1.1.1" extension="78901234" />
+						<!-- Example patient ID. Please note that 2.999.1.1.1 would be the XAD-PID used in the registry -->
+					</AttributeValue>
+					<ResourceAttributeDesignator DataType="urn:hl7-org:v3#II" AttributeId="urn:ihe:iti:ser:2016:patient-id" />
+					<!-- Attribute ID was already defined in SeR -->
+				</ResourceMatch>
+				<!-- AND -->
+				<ResourceMatch MatchId="urn:hl7-org:v3:function:CV-equal">
+					<AttributeValue DataType="urn:hl7-org:v3#CV">
+						<hl7:CodedValue code="F33.1" codeSystem="2.16.840.1.113883.6.3" 
+							displayName="Major depressive disorder, recurrent, moderate"  
+							codeSystemName="ICD-10 International"/>
+						<!-- note that the CV-equals function only compares code and codeSystem 
+							while ignoring displayName and codeSystemName-->
+					</AttributeValue>
+					<ResourceAttributeDesignator DataType="urn:hl7-org:v3#CV" 
+						AttributeId="urn:ihe:iti:appc:2016:folder:code" />						
+						<!-- Attribute ID is new, used the same base as in SeR -->
+				</ResourceMatch>
+			</Resource>
+			<!-- OR -->
+			<Resource>
+				<!-- This resource check is for allowing access to the documents related to the folder -->
+				<ResourceMatch MatchId="urn:hl7-org:v3:function:II-equal">
+					<AttributeValue DataType="urn:hl7-org:v3#II">
+						<hl7:InstanceIdentifier root="2.999.1.1.1" extension="78901234" />
+					</AttributeValue>
+					<ResourceAttributeDesignator DataType="urn:hl7-org:v3#II" AttributeId="urn:ihe:iti:ser:2016:patient-id" />
+				</ResourceMatch>
+				<!-- AND -->
+				<ResourceMatch MatchId="urn:hl7-org:v3:function:CV-equal">
+					<AttributeValue DataType="urn:hl7-org:v3#CV">
+						<hl7:CodedValue code="F33.1" codeSystem="2.16.840.1.113883.6.3" 
+							displayName="Major depressive disorder, recurrent, moderate"  
+							codeSystemName="ICD-10 International"/>
+						<!-- note that the CV-equals function only compares code and codeSystem 
+							while ignoring displayName and codeSystemName-->
+					</AttributeValue>
+					<ResourceAttributeDesignator DataType="urn:hl7-org:v3#CV" 
+						AttributeId="urn:ihe:iti:appc:2016:document-entry:related-folder:code" />
+					<!-- Attribute ID is new, used the same base as in SeR -->
+				</ResourceMatch>
+			</Resource>
+		</Resources>
+		<Environments>
+			<Environment>
+				<EnvironmentMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:dateTime-less-than-or-equal">
+					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#dateTime">
+						2016-01-01T09:00:00Z
+						<!-- The start of the validity period. The policy is applicable if the start date is less than (i.e. before) the current date -->
+					</AttributeValue>
+					<EnvironmentAttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#dateTime" 
+						AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-dateTime" />
+				</EnvironmentMatch>
+				<!-- AND -->
+				<EnvironmentMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:date-greater-than">
+					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#date">
+						2017-01-01
+						<!-- The end of the validity period. The policy is applicable if the end date is greater than (i.e. after) the current date.
+								Both start and end date could be defined as date or dateTime. Using different granularities for illustration purposes -->
+					</AttributeValue>
+					<EnvironmentAttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#date" 
+						AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-date" />
+				</EnvironmentMatch>
+			</Environment>
+		</Environments>
+    </Target>
+	<PolicyIdReference>
+		urn:example:policy:episode-of-care
+		<!-- this determines the extent of access, i.e. what data may be accessed under which circumstances. 
+			The enforcement system must be able to retrieve the policy identified by the URN. In this example the affinity domain has 
+			defined a policy that must be referenced by all advanced consent documents for an episode of care. -->
+	</PolicyIdReference> 
+</PolicySet>

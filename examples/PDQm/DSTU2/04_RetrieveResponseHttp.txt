@@ -1,0 +1,78 @@
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json+fhir; charset=UTF-8
+Content-Length: 1547
+Date: Sun, 06 Apr 2014 20:38:23 GMT
+Expires: Sat, 05 Apr 2014 20:38:20 GMT
+
+{
+    "resourceType": "Patient",
+    "text": {
+        "status": "generated",
+        "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">John Smith (Male) - 1974-12-25</div>"
+    },
+    "identifier": [
+      {
+          "use": "usual",
+          "system": "urn:oid:1.2.36.146.595.217.0.1",
+          "value": "12345",
+          "assigner": {
+              "display": "Acme Healthcare"
+          }
+      }
+    ],
+    "name": [
+      {
+          "use": "official",
+          "family": [
+          "Smith"
+        ],
+          "given": [
+          "John",
+          "James"
+        ]
+      },
+      {
+          "use": "usual",
+          "given": [
+          "James"
+        ]
+      }
+    ],
+    "telecom": [
+      {
+          "use": "home"
+      },
+      {
+          "system": "phone",
+          "value": "+1(202)555-6474",
+          "use": "work"
+      }
+    ],
+    "gender": {
+        "coding": [
+        {
+            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+            "code": "M",
+            "display": "Male"
+        }
+      ]
+    },
+    "birthDate": "1974-12-25",
+    "deceasedDateTime": null,
+    "address": [
+      {
+          "use": "home",
+          "line": [
+          "123 Main St. West Unit 33"
+        ],
+          "city": "Chicago",
+          "state": "IL",
+          "zip": "00000"
+      }
+    ],
+    "managingOrganization": {
+        "display": "ACME Medical Centres"
+    },
+    "active": true
+}

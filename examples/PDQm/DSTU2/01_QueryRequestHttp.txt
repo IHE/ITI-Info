@@ -1,0 +1,2 @@
+GET http://pdq-sample:8080/iti-y1/patient?given=Smith&family=John&gender=M&_format=json HTTP/1.1
+Host: pdq-sample:8080

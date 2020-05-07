@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PolicySet PolicySetId="urn:uuid:e3585197-9e3d-4ca3-9583-4540a3a5b64b"
+				PolicyCombiningAlgId="urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:deny-overrides"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:hl7="urn:hl7-org:v3"
+				xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os"
+	xsi:schemaLocation="urn:oasis:names:tc:xacml:2.0:policy:schema:os ihe-appc-xacml-combined-schema-1.0.xsd">
+	<Description>The patient agrees to grant access to the identified facility. 
+	The extent of access is defined by the referenced policy.</Description>
+    <Target>
+		<Subjects>
+			<Subject>
+				<SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:anyURI-equal">
+					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#anyURI">
+						urn:oid:2.999.2.1.1.35
+						<!-- Example facility OID for the post-surgical care facility-->
+					</AttributeValue>
+					<SubjectAttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#anyURI" 
+							AttributeId="urn:oasis:names:tc:xspa:1.0:subject:organization-id" />
+					<!-- data type and attribute ID are already defined by XUA and SeR -->
+				</SubjectMatch>
+			</Subject>
+		</Subjects>
+		<Resources>
+			<Resource>
+				<ResourceMatch MatchId="urn:hl7-org:v3:function:II-equal">
+					<AttributeValue DataType="urn:hl7-org:v3#II">
+						<hl7:InstanceIdentifier root="2.999.1.1.1" extension="78901234" />
+						<!-- Example patient ID. Please note that 2.999.1.1.1 would be the XAD-PID used in the registry -->
+					</AttributeValue>
+					<ResourceAttributeDesignator DataType="urn:hl7-org:v3#II" AttributeId="urn:ihe:iti:ser:2016:patient-id" />
+					<!-- Attribute ID was already defined in SeR -->
+				</ResourceMatch>
+			</Resource>
+		</Resources>
+    </Target>
+	<PolicySetIdReference>
+		urn:example:policy:extensive-access
+		<!-- this determines the extent of access, i.e. who in the facility is allowed to access what data under which circumstances. 
+			The enforcement system must be able to retrieve the policySet identified by the URN. In this example the affinity domain has 
+			defined three policySets that may be referenced by an advanced consent document. Referencing a policySet instead of a 
+			policy allows for more flexibility. -->
+	</PolicySetIdReference> 
+</PolicySet>

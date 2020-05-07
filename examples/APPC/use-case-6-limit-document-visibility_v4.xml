@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PolicySet PolicySetId="urn:uuid:67ec6ee5-47ec-4eec-8207-fb852a650d9e"
+				PolicyCombiningAlgId="urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:deny-overrides"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:hl7="urn:hl7-org:v3"
+				xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os"
+	xsi:schemaLocation="urn:oasis:names:tc:xacml:2.0:policy:schema:os ihe-appc-xacml-combined-schema-1.0.xsd">
+	<Description>The patient limits access to a specific document and 
+		to this consent document for anybody but himself</Description>
+    <Target>
+		<Resources>
+			<Resource>
+				<ResourceMatch MatchId="urn:hl7-org:v3:function:II-equal">
+					<AttributeValue DataType="urn:hl7-org:v3#II">
+						<hl7:InstanceIdentifier root="2.999.1.1.1" extension="78901234" />
+					</AttributeValue>
+					<ResourceAttributeDesignator DataType="urn:hl7-org:v3#II" AttributeId="urn:ihe:iti:ser:2016:patient-id" />
+				</ResourceMatch>
+				<!-- AND -->
+				<ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">
+						2.999.6.1.1.318237191
+						<!-- Example Document.uniqueId for drug screening result document-->
+					</AttributeValue>
+					<ResourceAttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string" 
+						AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" />
+						<!-- Attribute ID for Document.uniqueId was defined by SeR -->
+				</ResourceMatch>
+			</Resource>
+			<!-- OR -->
+			<Resource>
+				<ResourceMatch MatchId="urn:hl7-org:v3:function:II-equal">
+					<AttributeValue DataType="urn:hl7-org:v3#II">
+						<hl7:InstanceIdentifier root="2.999.1.1.1" extension="78901234" />
+					</AttributeValue>
+					<ResourceAttributeDesignator DataType="urn:hl7-org:v3#II" AttributeId="urn:ihe:iti:ser:2016:patient-id" />
+				</ResourceMatch>
+				<!-- AND -->
+				<ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">
+						2.999.6.1.1.761523172
+						<!-- Example Document.uniqueId for this advanced consent document-->
+					</AttributeValue>
+					<ResourceAttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string" 
+						AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" />
+						<!-- Attribute ID for Document.uniqueId was defined by SeR -->
+				</ResourceMatch>
+			</Resource>
+		</Resources>
+    </Target>
+   	<PolicySetIdReference>
+		urn:example:policy:deny-access-except-for-patient
+		<!-- this determines the extent of the denied access, including  an exception for the patient himself.
+			The enforcement system must be able to retrieve the policySet identified by the URN. 
+			In this example the affinity domain has defined a policySet that must be referenced 
+			by an advanced consent document for blocking purposes. 
+			Referencing a policySet instead of a policy allows for more flexibility. -->
+	</PolicySetIdReference> 
+</PolicySet>

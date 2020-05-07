@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<soap:Envelope xsi:schemaLocation="http://www.w3.org/2003/05/soap-envelope
+    soap-envelope.xsd"
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xacmlsaml="urn:oasis:xacml:2.0:saml:assertion:schema:os">
+    <soap:Header xsi:schemaLocation="http://www.w3.org/2005/08/addressing
+        ws-addr.xsd"
+        xmlns:wsa="http://www.w3.org/2005/08/addressing">
+        
+        <wsa:Action>urn:iti:2014:XACMLAuthorizationDecisionQueryResponse</wsa:Action>
+        <wsa:RelatesTo>urn:uuid:9376254e-da05-41f5-9af3-
+            ac56d63d8ebd</wsa:RelatesTo>
+        <wsa:MessageID>urn:uuid:7534324t-mm56-45t5-6tg4-
+            gt56d63g6hym</wsa:MessageID>
+    </soap:Header>
+    <soap:Body xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:oasis:names:tc:SAML:2.0:protocol samlschema-protocol-2.0.xsd">
+        <samlp:Response ID="a123456" Version="2.0" IssueInstant="2014-04-
+            16T14:53:55Z">
+            <samlp:Status>
+                <samlp:StatusCode
+                    Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+                <samlp:StatusMessage>OK</samlp:StatusMessage>
+            </samlp:Status>
+            <saml:Assertion
+                xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Version="2.0"
+                ID="a9812368" IssueInstant="2006-05-31T13:20:00.000">
+                <saml:Issuer>https://XACMLPDP.example.com</saml:Issuer>
+                <saml:Statement xsi:type="xacmlsaml:XACMLAuthzDecisionStatementType"
+                    
+                    xsi:schemaLocation="urn:oasis:xacml:2.0:saml:assertion:schema:os
+                    access_control-xacml-2.0-saml-assertion-schema-os.xsd"
+                    xmlns:xacmlsaml="urn:oasis:xacml:2.0:saml:assertion:schema:os">
+                    <Response
+                        
+                        xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os">
+                        <Result ResourceId="DocumentID1">
+                            <Decision>Deny</Decision>
+                        </Result>
+                        <Result ResourceId="DocumentID2">
+                            <Decision>Permit</Decision>
+                        </Result>
+                        <Result ResourceId="DocumentID3">
+                            <Decision>Permit</Decision>
+                        </Result>
+                    </Response>
+                </saml:Statement>
+            </saml:Assertion>
+        </samlp:Response>
+    </soap:Body>
+</soap:Envelope>

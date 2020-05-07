@@ -1,0 +1,118 @@
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json+fhir; charset=UTF-8
+Content-Length: 2683
+Date: Sun, 06 Apr 2014 20:38:23 GMT
+Expires: Sat, 05 Apr 2014 20:38:20 GMT
+
+{
+  "resourceType" : "Bundle",
+  "title" : "Search results for resource type Patient",
+  "id" : "urn:uuid:c179d5bd-e81e-4fe0-981a-46f6c6588f",
+  "link" : [
+    {
+      "href" : "http://pdm-sample:8080/iti-y1/Patient?_format=application/json+fhir&gender=M&family=Smith&given=John&count=10",
+      "rel" : "self"
+    }
+  ],
+  "updated" : "2014-04-06T20:38:23Z",
+  "totalResults" : "1",
+  "entry" : [
+    {
+      "title" : "Patient \"1\"",
+      "id" : "http://pdm-sample:8080/iti-y1/Patient/1",
+      "link" : [
+        {
+          "href" : "http://pdm-sample:8080/iti-y1/Patient/1",
+          "rel" : "self"
+        }
+      ],
+      "updated" : "2014-03-11T20:34:55Z",
+      "content" : {
+        "resourceType" : "Patient",
+        "text" : {
+          "status" : "generated",
+          "div" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">John Smith (Male) - 1974-12-25</div>"
+        },
+        "identifier" : [
+          {
+            "use" : "usual",
+            "system" : "urn:oid:1.2.36.146.595.217.0.1",
+            "value" : "12345",
+            "assigner" : {
+              "display" : "Acme Healthcare"
+            }
+          }
+        ],
+        "name" : [
+          {
+            "use" : "official",
+            "family" : [
+              "Smith"
+            ],
+            "given" : [
+              "John",
+              "James"
+            ]
+          },
+          {
+            "use" : "usual",
+            "given" : [
+              "James"
+            ]
+          }
+        ],
+        "telecom" : [
+          {
+            "use" : "home"
+          },
+          {
+            "system" : "phone",
+            "value" : "+1(202)555-6474",
+            "use" : "work"
+          }
+        ],
+        "gender" : {
+          "coding" : [
+            {
+              "system" : "http://hl7.org/fhir/v3/AdministrativeGender",
+              "code" : "M",
+              "display" : "Male"
+            }
+          ]
+        },
+        "birthDate" : "1974-12-25",
+        "deceasedDateTime" : null,
+        "address" : [
+          {
+            "use" : "home",
+            "line" : [
+              "123 Main St. West Unit 33"
+            ],
+            "city" : "Chicago",
+            "state" : "IL",
+            "zip" : "00000"
+          }
+        ],
+        "managingOrganization" : {
+          "display" : "ACME Medical Centres"
+        },
+        "active" : true,
+		"extension" : [
+			{ 
+				"url" : "http://pdqm-sample:8080/ITI-78/Profile/pdqm#mothersMaidenName",
+				"valueHumanName" : {
+					"family" : [
+						"Smith"
+					],
+					"given" : [
+						"Mary"
+					]
+				}
+			}
+		]
+      },
+      "summary" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">John Smith (Male) - 1974-12-25</div>"
+    }
+  ]
+}

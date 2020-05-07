@@ -1,0 +1,65 @@
+{
+    "resourceType": "Conformance",
+    "identifier": "68D043B5-9ECF-4559-A57A-396E0D452311",
+    "version": "13.0",
+    "name": "Example.com IHE Conformance Statement - PDQm",
+    "publisher": "IHE",
+    "date": "2014-01-04",
+    "fhirVersion": "0.80",
+    "format": [
+        "xml",
+        "json"
+    ],
+    "rest" : [
+    {
+        "mode" : "server",
+        "resource" : [
+            {
+                "type" : "Patient",
+                "profile" : {
+                    "reference" : "http://example.com/pdqm/profile/pdqm",
+                }
+                "readHistory" : false,
+                "updateCreate" : false,
+                "operation" : [
+                    { 
+                        "code": "read"
+                    },
+                    {
+                        "code" : "search-type"
+                    }
+                ],
+                "searchParam" : [
+                    {
+                        "name" : "_id",
+                        "type" : "token"
+                    },
+                    {
+                        "name" : "identifier",
+                        "type" : "token"
+                    },
+                    {
+                        "name" : "family",
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "given",
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "birthdate",
+                        "type" : "date"
+                    },
+                    {
+                        "name" : "address",
+                        "type" : "string"
+                    },
+                    {
+                        "name" : "gender",
+                        "type" : "token"
+                    }
+                ] 
+            } 
+        ] 
+    } 
+} 

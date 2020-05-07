@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rmd:RemoveDocumentsRequest 
+	xmlns:rmd="urn:ihe:iti:rmd:2017" 
+	xmlns:xds="urn:ihe:iti:xds-b:2007" 
+	xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="urn:ihe:iti:rmd:2016 ../schema/IHE/RMD.xsd"
+	>
+	<xds:DocumentRequest>
+		<xds:RepositoryUniqueId>1.3.6.1.4.1000</xds:RepositoryUniqueId>
+		<xds:DocumentUniqueId>1.3.6.1.4.2300</xds:DocumentUniqueId>
+	</xds:DocumentRequest>
+	<xds:DocumentRequest>
+		<xds:RepositoryUniqueId>1.3.6.1.4.1000</xds:RepositoryUniqueId>
+		<xds:DocumentUniqueId>1.3.6.1.4.2301</xds:DocumentUniqueId>
+	</xds:DocumentRequest >
+</rmd:RemoveDocumentsRequest>
+

@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Profile xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <identifier value="pdqm"/>
+  <name value="Sample PDQm Profile"/>
+  <structure>
+    <type value="Patient"/>
+    <element>
+      <path value="Patient"/>
+      <definition>
+        <short value="Patient"/>
+        <formal value="The primary record for a matching patient result in a Patient Demographics Supplier."/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.identifier"/>
+      <definition>
+        <short value="Identifier List"/>
+        <formal value="An identifier that applies to this person as a patient. Identifiers from different Identity Domains shall be represented here. At least one patient identifier shall be present in this attribute. See ITI TF-2x: Appendix E.1 for details on populating the Identifier type."/>
+        <min value="1"/>
+        <max value="*"/>
+        <type>
+          <code value="Identifier"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.name"/>
+      <definition>
+        <short value="Name List"/>
+        <formal value="The name(s) associated with the individual. At least one name shall be represented here."/>
+        <min value="1"/>
+        <max value="*"/>
+        <type>
+          <code value="HumanName"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.telecom"/>
+      <definition>
+        <short value="Telecommunications Address"/>
+        <formal value="A contact detail (e.g., a telephone number or email address) by which the individual may be contacted."/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="Contact"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.gender"/>
+      <definition>
+        <short value="Administrative Gender"/>
+        <formal value="A value representing the gender (sex) of this person. Note: this attribute should not include terms related to clinical gender, rather this is the administrative gender of the patient."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <binding>
+          <name value="administrative-gender"/>
+          <isExtensible value="false"/>
+          <referenceUri value="http://hl7.org/fhir/vs/administrative-gender"/>
+        </binding>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.birthDate"/>
+      <definition>
+        <short value="Patient Date of Birth"/>
+        <formal value="The date / time when the patient was born. "/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="dateTime"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.deceasedDate"/>
+      <definition>
+        <short value="Patient Deceased Date"/>
+        <formal value="Indicates the date that the patient died."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="dateTime"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.address"/>
+      <definition>
+        <short value="Addresses of the patient"/>
+        <formal value="Address(es) for the individual."/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="Address"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.maritalStatus"/>
+      <definition>
+        <short value="Patient Marital Status"/>
+        <formal value="This field contains a patient’s most recent marital status (civil)."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <binding>
+          <name value="marital-status"/>
+          <isExtensible value="false"/>
+          <referenceUri value="http://hl7.org/fhir/vs/marital-status"/>
+        </binding>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.multipleBirthInteger"/>
+      <definition>
+        <short value="Patient Multiple Birth Order"/>
+        <formal value="Indicates the birth order when the patient is born as part of a multiple birth (e.g., twins)."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="integer"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.contact"/>
+      <definition>
+        <short value="Patient contacts"/>
+        <formal value="A contact party (e.g., parent, spouse, friend) for the patient. "/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="ContactInfo"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.contact.relationship"/>
+      <definition>
+        <short value="Relationship of the contact to the patient"/>
+        <formal value="Indicates the nature(s) of the relationship between the patient and the contact person."/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <binding>
+          <name value="patient-contact-relationship"/>
+          <isExtensible value="false"/>
+          <referenceUri value="http://hl7.org/fhir/vs/patient-contact-relationship"/>
+        </binding>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.contact.name"/>
+      <definition>
+        <short value="Name of the associated person"/>
+        <formal value="A name associated with this person."/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="HumanName"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.contact.telecom"/>
+      <definition>
+        <short value="Contact details for person"/>
+        <formal value="Contact detail(s) for the person (e.g., telephone number or email address)."/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="Contact"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.contact.gender"/>
+      <definition>
+        <short value="Gender of the contact"/>
+        <formal value="Gender of the contact person."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <binding>
+          <name value="administrative-gender"/>
+          <isExtensible value="false"/>
+          <referenceUri value="http://hl7.org/fhir/vs/administrative-gender"/>
+        </binding>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.contact.address"/>
+      <definition>
+        <short value="Address of the contact person"/>
+        <formal value="Address of the contact person."/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="Address"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.communication"/>
+      <definition>
+        <short value="Language of communication"/>
+        <formal value="Languages which may be used to communicate with the patient about their health."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <binding>
+          <name value="bcp47"/>
+          <isExtensible value="true"/>
+          <referenceUri value="http://tools.ietf.org/html/bcp47"/>
+        </binding>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.link"/>
+      <definition>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="Link"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.link.other"/>
+      <definition>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource(Patient)"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.link.type"/>
+      <definition>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="code"/>
+        </type>
+        <binding>
+          <name value="link-type"/>
+          <isExtensible value="true"/>
+          <referenceUri value="http://hl7.org/fhir/link-type"/>
+        </binding>
+      </definition>
+    </element>
+    <element>
+      <path value="Patient.active"/>
+      <definition>
+        <short value="Indicates whether patient is active"/>
+        <formal value="Indicates whether the patient record is currently in active use."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="boolean"/>
+        </type>
+      </definition>
+    </element>
+    <searchParam>
+      <name value="identifier"/>
+      <type value="token"/>
+      <description value="Filter on patient's identifier"/>
+    </searchParam>
+    <searchParam>
+      <name value="birthdate"/>
+      <type value="date"/>
+      <description value="Filter on patient's date of birth"/>
+
+    </searchParam>
+    <searchParam>
+      <name value="_id"/>
+      <type value="token"/>
+      <description value="Filter on resource identifier of patient"/>
+
+    </searchParam>
+    <searchParam>
+      <name value="gender"/>
+      <type value="token"/>
+      <description value="Filter on patient's gender"/>
+
+    </searchParam>
+    <searchParam>
+      <name value="family"/>
+      <type value="string"/>
+      <description value="Filter on patient's family name"/>
+    </searchParam>
+    <searchParam>
+      <name value="given"/>
+      <type value="string"/>
+      <description value="Filter on patient's given name"/>
+
+    </searchParam>
+    <searchParam>
+      <name value="mothersMadienName.family"/>
+      <type value="string"/>
+      <description value="Filter on patient's mother's maiden name (family part)"/>
+
+    </searchParam>
+    <searchParam>
+      <name value="mothersMaidenName.given"/>
+      <type value="string"/>
+      <description value="Filter on patient's mother's maiden name (given part)"/>
+
+    </searchParam>
+    <searchParam>
+      <name value="telecom"/>
+      <type value="string"/>
+      <description value="Filter on patient's telecom addresses"/>
+    </searchParam>
+    <searchParam>
+      <name value="multipleBirthInteger"/>
+      <type value="number"/>
+      <description value="Filter on multipleBirthInteger"/>
+    </searchParam>
+    <searchParam>
+      <name value="address"/>
+      <type value="string"/>
+      <description value="Continuation option: The number of results to include in this resultset"/>
+    </searchParam>
+    <searchParam>
+      <name value="page"/>
+      <type value="integer"/>
+      <description value="Continuation option: The page number (offset) of results"/>
+    </searchParam>
+    <searchParam>
+      <name value="count"/>
+      <type value="integer"/>
+      <description value="Continuation option: The number of results to include in this resultset"/>
+    </searchParam>
+  </structure>
+  <extensionDefn>
+    <code value="mothersMaidenName"/>
+    <contextType value="resource"/>
+    <context value="Patient"/>
+    <definition>
+      <short value="Patient's mother's maiden name"/>
+      <formal value="The name of the patient's mother"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="HumanName"/>
+      </type>
+      <isModifier value="false"/>
+    </definition>
+  </extensionDefn>
+</Profile>

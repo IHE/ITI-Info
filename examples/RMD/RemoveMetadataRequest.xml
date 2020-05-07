@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lcm:RemoveObjectsRequest xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0">
+	<rim:ObjectRefList xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+		<rim:ObjectRef id="urn:uuid:b2632452-1de7-480d-94b1-c2074d79c871"/>
+		<rim:ObjectRef id="urn:uuid:b2632df2-1de7-480d-1045-c2074d79aabd"/>
+		<rim:ObjectRef id="urn:uuid:b2632132-1de7-480d-88bd-c2074d79009b"/>
+		<rim:ObjectRef id="urn:uuid:b2632cd2-1de7-480d-108c-c2074d797777"/>
+	</rim:ObjectRefList>
+</lcm:RemoveObjectsRequest>
+
+
+

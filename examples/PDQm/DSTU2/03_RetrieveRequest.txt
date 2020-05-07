@@ -1,0 +1,2 @@
+GET http://pdm-sample:8080/iti-y1/Patient/1?_format=json HTTP/1.1
+Host: pdq-sample:8080
