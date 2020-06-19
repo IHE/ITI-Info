@@ -1,0 +1,45 @@
+<Parameters xmlns="http://hl7.org/fhir">
+	<id value="3.38.4.2.2.1-2" />
+    <meta>
+        <profile value="http://ihe.net/fhir/ihe.pixm.fhir/OperationDefinition/IHE.PIXm.pix" />
+    </meta>	
+	<parameter>
+		<name value="targetIdentifier"/>
+		<valueIdentifier>
+    		<use value="official" />
+    		<system value="urn:oid:2.16.840.1.113883.16.4.3.2.5" />
+		    	<value value="123" />
+		</valueIdentifier>
+	</parameter>
+	<parameter>
+		<name value="targetIdentifier"/>
+		<valueIdentifier>
+    		<use value="official" />
+    		<system value="urn:oid:1.16.7435.2.315381.13.4.1.2.3" />
+		    	<value value="474" />
+		</valueIdentifier> 
+	</parameter> 
+	<parameter>
+		<name value="targetId"/>
+		<valueReference>
+			<reference value="http://xyz-server/xxx/Patient/7536642" />
+		</valueReference>	
+	</parameter>
+	<parameter>
+		<name value="targetIdentifier"/>
+		<valueIdentifier>
+			<use value="official"/>
+			<system value="http://www.acmehosp.com/patients"/>
+			<value value="44552"/>
+			<period>
+				<start value="2003-05-03"/>
+			</period>
+		</valueIdentifier>  
+	</parameter>
+	<parameter>
+		<name value="targetId"/>
+		<valueReference>
+			<reference value="http://pas-server/xxx/Patient/443556" />
+		</valueReference>	
+	</parameter>
+</Parameters>

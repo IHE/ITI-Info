@@ -1,0 +1,16 @@
+<!-- is this example valid -->
+<Parameters xmlns="http://hl7.org/fhir">
+    <id value="46138430-266b-423b-b64b-afdea6deed2a" />
+    <parameter>
+        <name value="error" />
+        <resource>
+            <OperationOutcome>
+                <issue>
+                    <severity value="error" />
+                    <code value="not-found" />
+					<diagnostics value="sourceIdentifier Patient Identifier not found" />
+                </issue>
+            </OperationOutcome>
+        </resource>
+    </parameter>
+</Parameters>

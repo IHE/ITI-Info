@@ -1,0 +1,54 @@
+<Parameters xmlns="http://hl7.org/fhir">
+    <id value="46138430-266b-423b-b64b-afdea6deed2b" />
+    <meta>
+        <profile value="http://ihe.net/fhir/ihe.pixm.fhir/OperationDefinition/IHE.PIXm.pix" />
+    </meta>
+    <parameter>
+        <name value="targetId" />
+        <valueReference>
+            <reference value="https://example.com/PCR/1.0/FHIR/Patient/106616" />
+        </valueReference>
+    </parameter>
+    <parameter>
+        <name value="targetIdentifier" />
+        <valueIdentifier>
+            <system value="http://example.com/fhir/NamingSystem/id-registration-and-claims-branch-def-source" />
+            <value value="8060001248" />
+        </valueIdentifier>
+    </parameter>
+    <parameter>
+        <name value="targetIdentifier" />
+        <valueIdentifier>
+            <system value="https://example.com/fhir/NamingSystem/id-champlain-regional-empi-def-source" />
+            <value value="Profile11CHMMemidnum8060001248" />
+        </valueIdentifier>
+    </parameter>
+    <parameter>
+        <name value="targetIdentifier" />
+        <valueIdentifier>
+            <system value="http://example.com/fhir/NamingSystem/id-queensway-carleton-hospital-mrn" />
+            <value value="Profile11CHMMRN18060001248" />
+        </valueIdentifier>
+    </parameter>
+    <parameter>
+        <name value="targetIdentifier" />
+        <valueIdentifier>
+            <system value="http://example.com/fhir/NamingSystem/id-pembroke-regional-hospital-mrn" />
+            <value value="Profile11CHMMRN28060001248" />
+        </valueIdentifier>
+    </parameter>
+    <parameter>
+        <name value="targetIdentifier" />
+        <valueIdentifier>
+            <system value="http://example.com/fhir/NamingSystem/id-st-francis-memorial-hospital-mrn" />
+            <value value="Profile11CHMMRN38060001248" />
+        </valueIdentifier>
+    </parameter>
+    <parameter>
+        <name value="targetIdentifier" />
+        <valueIdentifier>
+            <system value="https://fhir.infoway-inforoute.ca/NamingSystem/ca-on-patient-hcn" />
+            <value value="8060001248" />
+        </valueIdentifier>
+    </parameter>
+</Parameters>
