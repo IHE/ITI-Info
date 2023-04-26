@@ -25,8 +25,8 @@
 			<!-- Include the message schema -->
 			<xsd:include schemaLocation="../schema/IHE/XCPD_PLQ.xsd"/>
 		</xsd:schema>
-		<!-- Include the Deferred Response Message Schema
-		     Uncomment this section if Deferred Response is supported
+		<!-- Include the Accept Acknowledgment Message Schema
+		     Uncomment this section if Deferred Response or Cross Gateway Revoke is supported
 		<xsd:schema elementFormDefault="qualified" targetNamespace="urn:hl7-org:v3" xmlns:hl7="urn:hl7-org:v3">
 				<xsd:include schemaLocation="../schema/HL7V3/NE2008/multicacheschemas/MCCI_IN000002UV01.xsd"/>
 		</xsd:schema>
@@ -49,8 +49,8 @@
         <wsdl:part element="hl7:PRPA_IN201306UV02" name="Body"/>
     </wsdl:message>
 
-	<!-- Define the Deferred Response Message
-		     Uncomment this section if Deferred Response is supported
+	<!-- Define the Accept Acknowledgment Message
+		     Uncomment this section if Deferred Response or Cross Gateway Revoke is supported
 	<wsdl:message name="MCCI_IN000002UV01_Message">
 		<wsdl:part name="Body" element="hl7:MCCI_IN000002UV01"/>
 	</wsdl:message>
@@ -65,7 +65,7 @@
 	</wsdl:message>
 
 	<!-- Define the Revoke Message
-	     Uncomment this section if Revoke is being supported
+	     Uncomment this section if Cross Gateway Revoke is being supported
 	<wsdl:message name="PRPA_IN201303UV02_Message">
 		<wsdl:part element="hl7:PRPA_IN201303UV02" name="Body" />
 	</wsdl:message>
@@ -96,7 +96,7 @@
 		-->
 		
   		<!-- Define the Revoke message
-	     Uncomment this section if Revoke is being supported
+	     Uncomment this section if Cross Gateway Revoke is being supported
 		<wsdl:operation name="RespondingGateway_PRPA_IN201303UV02">
 			<wsdl:input message="tns:PRPA_IN201303UV02_Message"
 				wsaw:Action="urn:hl7-org:v3:PRPA_IN201303UV02" />
@@ -109,6 +109,7 @@
     <wsdl:binding name="RespondingGateway_Binding_Soap12" type="tns:RespondingGateway_PortType">
         <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="RespondingGateway_PRPA_IN201305UV02">
+        	<soap12:operation soapActionRequired="false"/>
             <wsdl:input>
                 <soap12:body use="literal"/>
             </wsdl:input>
@@ -119,6 +120,7 @@
 
 		<!-- The following operation element are optional, delete if not needed -->
 		<wsdl:operation name="RespondingGateway_PatientLocationQuery">
+			<soap12:operation soapActionRequired="false"/>
 			<wsdl:input>
 				<soap12:body use="literal"/>
 			</wsdl:input>
@@ -131,6 +133,7 @@
 	<!-- Define the Deferred Response Message
 		 Uncomment this section if Deferred Response is supported
 		<wsdl:operation name="RespondingGateway_Deferred_PRPA_IN201305UV02">
+			<soap12:operation soapActionRequired="false"/>
 			<wsdl:input>
 				<soap12:body use="literal"/>
 			</wsdl:input>
@@ -143,6 +146,7 @@
 	<!-- Define the Revoke Message
 		 Uncomment this section if Revoke is supported
 		<wsdl:operation name="RespondingGateway_PRPA_IN201303UV02">
+			<soap12:operation soapActionRequired="false"/>
 			<wsdl:input>
 				<soap12:body use="literal" />
 			</wsdl:input>
