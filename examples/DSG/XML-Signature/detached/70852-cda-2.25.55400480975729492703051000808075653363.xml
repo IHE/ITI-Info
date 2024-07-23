@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdtc="urn:hl7-org:sdtc" xmlns="urn:hl7-org:v3">
+	<realmCode code="US" />
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+	<templateId root="1.3.6.1.4.1.19376.1.2.21" />
+	<id root="ed3215b7-4d20-4882-bfef-731fc9ec9c02" />
+	<code code="11528-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Radiology Report" />
+	<title>Radiology Report</title>
+	<effectiveTime value="20180416092300+0900" />
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" />
+	<languageCode code="eng" />
+	<recordTarget typeCode="RCT" contextControlCode="OP">
+		<patientRole classCode="PAT">
+			<id root="1eea0d34-648e-4455-aa74-b608a3b23dd3" extension="IHEBLUE-2298" />
+			<addr>
+				<country>KOR</country>
+				<state>Kyoungki-do</state>
+				<city>Seongnam-si</city>
+				<additionalLocator>Bundang-gu</additionalLocator>
+				<streetAddressLine>Sampyoung-dong</streetAddressLine>
+				<postalCode>000-000</postalCode>
+			</addr>
+			<telecom value="tel:000-0000-0000" />
+			<patient classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<given>Maria</given>
+					<family>Lita</family>
+				</name>
+				<administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" codeSystemName="Administrative sex" displayName="Female" />
+				<birthTime value="19620426" />
+				<raceCode code="2106-3" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race and Ethnicity - CDC" displayName="White" />
+				<ethnicGroupCode code="2135-2" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race and Ethnicity - CDC" displayName="Hispanic or Latino" />
+				<languageCommunication>
+					<languageCode code="eng" />
+				</languageCommunication>
+			</patient>
+		</patientRole>
+	</recordTarget>
+	<author typeCode="AUT" contextControlCode="OP">
+		<time value="20180416092300+0900" />
+		<assignedAuthor classCode="ASSIGNED">
+			<id root="abad97aa-7837-4fb8-aabe-28a468984bf0" extension="author001" />
+			<addr>
+				<country>KOR</country>
+				<state>Kyungki-do</state>
+				<city>Seongnam</city>
+				<additionalLocator>Bundang-gu</additionalLocator>
+				<streetAddressLine>Sampyung-ro 000-000</streetAddressLine>
+				<postalCode>000-000</postalCode>
+			</addr>
+			<telecom value="tel:000-000-001" />
+			<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<given>Steve</given>
+					<family>Kim</family>
+				</name>
+			</assignedPerson>
+		</assignedAuthor>
+	</author>
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id root="1.2.410.1.12345" extension="org001" />
+				<name>Bundang Hospital</name>
+				<telecom value="tel:000-000-000" />
+				<addr>
+					<country>KOR</country>
+					<state>Kyungki-do</state>
+					<city>Seongnam</city>
+					<additionalLocator>Bundang-gu</additionalLocator>
+					<streetAddressLine>Sampyung-ro 000-000</streetAddressLine>
+					<postalCode>000-000</postalCode>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="PCPR" moodCode="EVN">
+			<templateId root="2.16.840.1.113883.10.20.21.3.1" />
+			<id root="f6ac11de-22af-4b2e-a995-9ad8816b9f03" />
+			<code code="801460020" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Laparoscopic Appendectomy" />
+			<effectiveTime>
+				<low value="19750501" />
+				<high value="20120915" />
+			</effectiveTime>
+			<performer typeCode="PPRF">
+				<assignedEntity classCode="ASSIGNED">
+					<id root="d9389675-22b6-44b8-8378-256fe861bac6" />
+					<code code="CP" codeSystem="2.16.840.1.113883.3.88.12.3221.4.2" />
+					<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+						<name>
+							<given>Henry</given>
+							<family>Kim</family>
+						</name>
+					</assignedPerson>
+				</assignedEntity>
+			</performer>
+		</serviceEvent>
+	</documentationOf>
+	<component>
+		<nonXMLBody>
+			<text representation="B64" mediaType="text/plain">c2Rmc2Rmc2Rmc2Rm</text>
+		</nonXMLBody>
+	</component>
+</ClinicalDocument>
