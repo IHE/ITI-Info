@@ -1,0 +1,6 @@
+
+<rim:RegistryObjectList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0 ebRS/rim.xsd"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+    <rim:ObjectRef id="https://NotificationRecipientServer/xdsBnotification"/>
+</rim:RegistryObjectList>
