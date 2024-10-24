@@ -1,0 +1,30 @@
+{
+    "alg": "RS256",
+    "x5t#S256": "bjHwXpRmhyGOyy0u0cmK1wty7JrYkmqpWlsytpGPog0",
+    "crit": [
+        "sigT",
+        "sigD"
+    ],
+    "sigT": "2024-05-09T00:00:00Z",
+    "sigD": {
+        "mID": "http://uri.etsi.org/19182/ObjectIdByURIHash",
+        "pars": [
+            "https://hl7.org/fhir/uv/ips/Bundle-IPS-examples-Bundle-01.json"
+        ],
+        "hashM": "RS256",
+        "hashV": [
+            "nhEC6Z2QyvCH4QeZ67o42faDuMHi0uJe2gGDSuIQ1ti5vRTDcED5ND4NaM3XYfsNbNP4WqDApRStmy388IZvsrVZS/lYez3nMeNduPVaLjNni6ZygFK4kpV+MRMZEWN+1A/maQIkQbf3Em0By1HXZ5ttekOSCrtqqgRF+W7YyvIA4GBitVznuYM+DkqdlcxXeZPHIYnnc9cweSHVnLJI8uYRF5sWzVaZJj+IaAJl+0h7HM0mo/zHl1G+HR1HsjrJxos8hO5S6RKMjIYt01JcVB3eRyLSSeLOTJzmc74LMzwRdz5R2zcAnwYuYMkMLEvoe7YzsPkUVQy9QZfAh0qi1/vWBu+FEGSPVRfSL69HRwEMCj50qjgfRRDW1BHPWH578Fc6zFTpF05ZxDyytEw5grbwDGNqbBPPSr6UpgEq+n0hazq9eWHFNLoIeCIzVSuXSWVih5FKhyJSfflfYZxevNbIuqYuzeVkoA8LkIiZ7gXZzUKUs04HPh2wiO+v5VVwOXpscf3KkmQwrmAXj1UUk0hPDLPDCqpGfiM9elBGNBH3LNM5O9Q8oPIDdeNhVisUs34Qx+fOPLDUT/TrsOyeXOFAOnW8LfkhqiD2TsLCqFlo+fvc8RIrl0E2thC272Y0hoFMrlkGI8bOdsSznUMmS0gy4Q7vrCeHzyaMEN/EqWI="
+        ],
+        "ctys": [
+            "application/fhir+json"
+        ]
+    },
+    "srCms": [
+        {
+            "commId": "1.2.840.10065.1.12.1.6"
+        }
+    ],
+    "sigPId": {
+        "id": "urn:ihe:iti:dsg:detached:2014"
+    }
+}

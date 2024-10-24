@@ -1,0 +1,13 @@
+{
+    "etsiU": {
+        "sigTST": {
+            "tstContainer": {
+                "tstToken": [
+                    {
+                        "val": "base64-encoded-timestamp-token"
+                    }
+                ]
+            }
+        }
+    }
+}
