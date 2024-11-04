@@ -11,7 +11,7 @@ This folder holds an example for DSGj Detached Signature. Step by step instructi
     1. Encode JWS Protected Header into Base64url as BASE64URL(UTF8(JWS Protected Header)) - see file '[encodedJWSProtectedHeader](encodedJWSProtectedHeader)'
 
 3. Prepare input for Signature Value Computation
-    1. Combining these as BASE64URL(UTF8(JWS Protected Header)) || '.' || BASE64URL(JWS Payload) - see file '[signing_input.txt](signing_input.txt)'
+    1. Combining these as BASE64URL(UTF8(JWS Protected Header)) || '.' || '' - see file '[signing_input.txt](signing_input.txt)'
 
 4. Compute JWS Signature Value - see file '[encodedSignatureValue](encodedSignatureValue)'
     1. Create a self signed cert -  "openssl req -x509 -newkey rsa:4096 -keyout keyrr -out certrr.pem -sha256 -days 3650"
